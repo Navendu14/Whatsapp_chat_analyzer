@@ -1,5 +1,4 @@
 import streamlit as st
-st.session_state.clear()
 import preprocessor,helper
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -22,12 +21,7 @@ if uploaded_file is not None:
     selected_user = st.sidebar.selectbox("Show analysis wrt",user_list)
 
     if st.sidebar.button("Show Analysis"):
-        #df = df.reset_index()
-        #st.dataframe(df.head())
-        data1 = {'user': ['Alice', 'Bob', 'Charlie'], 'messages': [25, 50, 10]}
-        df1 = pd.DataFrame(data1)
-        st.dataframe(df1)
-
+        
         # Stats Area
         num_messages, words, num_media_messages, num_links = helper.fetch_stats(selected_user,df)
         st.title("Top Statistics")
